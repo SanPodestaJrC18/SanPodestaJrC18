@@ -1,31 +1,72 @@
+/* CSS Variables for themes */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #333333;
+    --link-hover: #000000;
+    --meta-color: #9a9a9a;
+    --border-color: #eeeeee;
+    --code-bg: #f5f5f5;
+    --header-overlay: rgba(0, 0, 0, 0.7);
+}
+
+.dark {
+    --bg-color: #15202b;     /* X.com Dim dark blue-black */
+    --text-color: #e7e9ea;
+    --link-color: #1da1f2;   /* X blue */
+    --link-hover: #339af0;
+    --meta-color: #8899ac;
+    --border-color: #38444d;
+    --code-bg: #22303c;
+    --header-overlay: rgba(0, 0, 0, 0.8); /* Slightly darker overlay for readability */
+}
+
 /* Global basics */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background: #fff;
-    color: #333;
+    background: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.65;
+    transition: background 0.3s, color 0.3s; /* Smooth switch */
 }
 a {
-    color: #333;
+    color: var(--link-color);
     text-decoration: underline;
 }
 a:hover {
-    color: #000;
+    color: var(--link-hover);
 }
 
-/* Minimal site header (just title, no full menu) */
+/* Site header with flex for title + button */
 .site-header {
     max-width: 600px;
     margin: 20px auto;
     padding: 0 10px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
 }
 .site-header a {
     font-size: 1.8rem;
     font-weight: bold;
     text-decoration: none;
+}
+
+/* Toggle button */
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 10px;
+    color: var(--text-color);
+    transition: transform 0.2s;
+}
+#theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 /* Post list on home */
@@ -38,7 +79,7 @@ a:hover {
 .post-list li {
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 .post-list a {
     font-size: 1.5rem;
@@ -48,11 +89,11 @@ a:hover {
 .post-list .post-date {
     display: block;
     margin-top: 0.5rem;
-    color: #9a9a9a;
+    color: var(--meta-color);
     font-size: 0.9rem;
 }
 
-/* Featured header (exact Millennial style) */
+/* Featured header */
 .featured-post {
     height: 400px;
     margin: 20px 10px 30px;
@@ -61,19 +102,19 @@ a:hover {
     background-size: cover;
     position: relative;
 }
-.featured-post h1 span {  /* Title overlay */
+.featured-post h1 span {
     display: inline-block;
     color: white;
     font: bold 2.5rem/1.2 Helvetica, Sans-Serif;
     letter-spacing: -1px;
-    background: rgba(0,0,0,0.7);
+    background: var(--header-overlay);
     padding: 15px;
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
-/* Post content area */
+/* Post content */
 .post-content {
     max-width: 600px;
     margin: 10px auto 40px;
@@ -82,11 +123,11 @@ a:hover {
 .post-date {
     display: block;
     margin-bottom: 1.5rem;
-    color: #9a9a9a;
+    color: var(--meta-color);
     font-size: 0.9rem;
 }
 
-/* Typography (headings, paras, lists) */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
     margin-top: 2rem;
     margin-bottom: .5rem;
@@ -97,24 +138,15 @@ h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.25rem; }
 
-p {
-    margin-top: 1em;
-    margin-bottom: 1em;
+p, ul, ol, pre, img {
+    margin: 1em 0;
 }
 
-ul, ol {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-}
-li {
-    margin-bottom: 0.5rem;
-}
-
-/* Code blocks */
+/* Code */
 code {
     padding: .25em .5em;
     font-size: .8rem;
-    background-color: #f5f5f5;
+    background-color: var(--code-bg);
     border-radius: 3px;
     font-family: 'Source Code Pro', monospace;
 }
@@ -122,9 +154,9 @@ pre {
     padding: 1rem;
     font-size: .8rem;
     line-height: 1.4;
-    background-color: #f5f5f5;
+    background-color: var(--code-bg);
     overflow-x: auto;
-    margin: 1rem 0;
+    border-radius: 6px;
 }
 pre code {
     padding: 0;
@@ -140,20 +172,19 @@ img {
 }
 
 /* Responsive */
-@media (max-width: 1100px) {
-    .post-content, .post-list, .site-header {
-        width: 80vw;
-    }
-}
 @media (max-width: 600px) {
-    .post-content, .post-list, .site-header {
-        width: 95vw;
+    .featured-post {
+        height: 300px;
     }
     .featured-post h1 span {
         font-size: 2rem;
         padding: 10px;
     }
-    .featured-post {
-        height: 300px;
+    .site-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    #theme-toggle {
+        margin-top: 10px;
     }
 }
