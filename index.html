@@ -9,8 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+   
+<body>
+    <header class="site-header">
+        <a href="index.html">My Blog</a> <!-- On post pages: href="../index.html" -->
+        <button id="theme-toggle" aria-label="Toggle dark/light mode">☀️</button>
+    </header>
+    <ul class="post-list">
+        <!-- Add new posts here (manual) -->
+        <li>
+           <li>
+               <a href="posts/welcome.html">Welcome to My Blog</a>
+               <span class="post-date">January 02, 2026</span>
+               <p>Optional short teaser/description here.</p>
+           </li>
+        </li>
+        <!-- More <li> for older posts -->
+    </ul>
 
-<script>
+    <script>
     const toggleButton = document.getElementById('theme-toggle');
     const body = document.body;
 
@@ -37,22 +54,5 @@
         }
     });
 </script>
-    
-<body>
-    <header class="site-header">
-        <a href="index.html">My Blog</a> <!-- On post pages: href="../index.html" -->
-        <button id="theme-toggle" aria-label="Toggle dark/light mode">☀️</button>
-    </header>
-    <ul class="post-list">
-        <!-- Add new posts here (manual) -->
-        <li>
-           <li>
-               <a href="posts/welcome.html">Welcome to My Blog</a>
-               <span class="post-date">January 02, 2026</span>
-               <p>Optional short teaser/description here.</p>
-           </li>
-        </li>
-        <!-- More <li> for older posts -->
-    </ul>
 </body>
 </html>
