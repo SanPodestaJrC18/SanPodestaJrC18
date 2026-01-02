@@ -188,3 +188,64 @@ img {
         margin-top: 10px;
     }
 }
+
+/* Post cards on home (Millennial-style previews) */
+.post-list {
+    padding: 0;
+    list-style: none;
+}
+.post-card {
+    margin-bottom: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.post-card:hover {
+    transform: translateY(-5px);
+}
+.post-link {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+.post-featured {
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.post-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--header-overlay);
+    padding: 20px;
+    color: white;
+}
+.post-title-overlay h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.post-excerpt {
+    padding: 15px;
+    background: var(--bg-color);
+}
+.post-excerpt .post-date {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--meta-color);
+}
+
+/* Responsive tweak */
+@media (max-width: 600px) {
+    .post-featured {
+        height: 200px;
+    }
+    .post-title-overlay h2 {
+        font-size: 1.5rem;
+    }
+}
