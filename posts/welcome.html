@@ -10,33 +10,6 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 
-    <script>
-    const toggleButton = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    // Load saved theme or default to dark
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light'); // Not needed actually, since :root is light
-        toggleButton.innerHTML = '🌙';
-    } else {
-        body.classList.add('dark');
-        toggleButton.innerHTML = '☀️';
-    }
-
-    // Toggle function
-    toggleButton.addEventListener('click', () => {
-        if (body.classList.contains('dark')) {
-            body.classList.remove('dark');
-            toggleButton.innerHTML = '🌙';
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.classList.add('dark');
-            toggleButton.innerHTML = '☀️';
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-</script>
     
 <body>
     <header class="site-header">
@@ -71,4 +44,33 @@
         </div>
     </main>
 </body>
+
+    <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Load saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light'); // Not needed actually, since :root is light
+        toggleButton.innerHTML = '🌙';
+    } else {
+        body.classList.add('dark');
+        toggleButton.innerHTML = '☀️';
+    }
+
+    // Toggle function
+    toggleButton.addEventListener('click', () => {
+        if (body.classList.contains('dark')) {
+            body.classList.remove('dark');
+            toggleButton.innerHTML = '🌙';
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.classList.add('dark');
+            toggleButton.innerHTML = '☀️';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+</script>
+    
 </html>
