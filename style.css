@@ -61,15 +61,32 @@ a:hover {
 #theme-toggle {
     background: none;
     border: none;
-    font-size: 1.8rem;
+    font-size: 2.4rem; /* Bigger ball */
     cursor: pointer;
     padding: 10px;
     color: var(--text-color);
-    transition: transform 0.2s;
+    transition: transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #theme-toggle:hover {
-    transform: scale(1.1);
+    transform: rotate(360deg); /* Spin on hover = kick vibe */
+}
+
+#theme-toggle:active {
+    animation: bounce 0.4s ease; /* Quick bounce on click */
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Mobile tweak */
+@media (max-width: 600px) {
+    #theme-toggle { font-size: 2rem; }
 }
 
 /* Minimal gallery cards on home */
