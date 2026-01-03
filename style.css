@@ -249,3 +249,82 @@ img {
         font-size: 1.5rem;
     }
 }
+
+/* Millennial-style post cards on home */
+.post-list {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    list-style: none;
+    display: grid;
+    gap: 3rem;
+}
+
+.post-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--bg-color);
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.post-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-featured {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.post-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--header-overlay);
+    padding: 30px 20px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); /* Fade for better look */
+}
+
+.post-title-overlay h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.post-excerpt {
+    padding: 20px;
+}
+
+.post-excerpt .post-date {
+    color: var(--meta-color);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.post-excerpt p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    .post-featured { height: 250px; }
+    .post-title-overlay h2 { font-size: 1.6rem; }
+}
+
+@media (max-width: 600px) {
+    .post-featured { height: 200px; }
+}
