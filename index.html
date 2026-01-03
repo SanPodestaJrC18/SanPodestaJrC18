@@ -9,38 +9,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>  <!-- Optional: add class="dark" here for no-JS fallback -->
-
+<body>
     <header class="site-header">
         <a href="index.html">San Podesta Jr C18</a>
         <button id="theme-toggle" aria-label="Toggle dark/light mode">☀️</button>
     </header>
 
-   <ul class="post-list">
-    <!-- Repeat this whole <li> block for each post (newest on top) -->
-    <li class="post-card">
-        <a href="posts/welcome.html" class="post-link">
-            <div class="post-featured" style="background-image: url('assets/img/header-1.jpg');">  <!-- Same image file as in the post page! No ../ here (home is root) -->
-                <div class="post-title-overlay">
-                    <h2>Welcome to My Blog</h2>
+    <ul class="post-list">
+        <!-- Duplicate this whole <li> for new posts (newest on top) -->
+        <li class="post-card">
+            <a href="posts/welcome.html" class="post-link">
+                <div class="post-featured" style="background-image: url('assets/img/header-1.jpg');">
+                    <div class="post-title-overlay">
+                        <h2>Welcome to My Blog</h2>
+                    </div>
                 </div>
-            </div>
-        </a>
-        <div class="post-excerpt">
-            <span class="post-date">January 02, 2026</span>
-            <p>Optional short teaser: Hey, this is my first post testing the custom Millennial-style previews!</p>
-        </div>
-    </li>
+            </a>
+        </li>
 
-    <!-- More posts here -->
-</ul>
+        <!-- Example for future post:
+        <li class="post-card">
+            <a href="posts/second-post.html" class="post-link">
+                <div class="post-featured" style="background-image: url('assets/img/header-2.jpg');">
+                    <div class="post-title-overlay">
+                        <h2>My Second Post Title</h2>
+                    </div>
+                </div>
+            </a>
+        </li>
+        -->
+    </ul>
 
-    <!-- Script goes HERE, inside body, at the end -->
     <script>
         const toggleButton = document.getElementById('theme-toggle');
         const body = document.body;
 
-        // Load saved theme or default to dark
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             toggleButton.innerHTML = '🌙';
@@ -49,7 +52,6 @@
             toggleButton.innerHTML = '☀️';
         }
 
-        // Toggle function
         toggleButton.addEventListener('click', () => {
             if (body.classList.contains('dark')) {
                 body.classList.remove('dark');
