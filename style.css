@@ -42,7 +42,8 @@ a:hover {
 }
 
 /* Header with title + toggle */
-header {          
+
+.site-header {          
     width:100%;
     background-image:url("assets/img/header-2.jpg");
 }
